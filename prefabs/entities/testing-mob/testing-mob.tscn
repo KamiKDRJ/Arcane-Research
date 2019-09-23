@@ -1,0 +1,45 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://prefabs/entities/base-mob.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/entities/testing-mob/testing-mob.gd" type="Script" id=2]
+[ext_resource path="res://assets/player/crouch/adventurer-crouch-00.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/crouch/adventurer-crouch-01.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/crouch/adventurer-crouch-02.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/crouch/adventurer-crouch-03.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-00.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-01.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-02.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-03.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-04.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-05.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+} ]
+
+[node name="TestingMob" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+modulate = Color( 0.282353, 1, 0.698039, 1 )
+position = Vector2( 0, -15 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
+[node name="AwareCircle" parent="." index="4"]
+editor/display_folded = true
+

@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="BaseScene" type="Node2D"]
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Items" type="YSort" parent="YSort"]
+
+[node name="Entities" type="YSort" parent="YSort"]
+
+[node name="Effects" type="YSort" parent="."]
+
+[node name="UI" type="Node2D" parent="."]
+
