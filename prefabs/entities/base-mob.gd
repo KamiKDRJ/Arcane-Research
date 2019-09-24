@@ -15,9 +15,10 @@ func _ready():
 	ReactCircle.connect('body_entered', self, '_on_react_entered')
 	ReactCircle.connect('body_exited', self, '_on_react_exited')
 
-func _draw():
-	draw_circle(Vector2.ZERO, AwareCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
-	draw_circle(Vector2.ZERO, ReactCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
+#func _draw():
+#	draw_circle(Vector2.ZERO, AwareCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
+#	draw_circle(Vector2.ZERO, ReactCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
+
 
 
 # Only reacts to player. May need to change that

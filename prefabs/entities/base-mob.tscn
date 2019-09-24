@@ -9,7 +9,7 @@ radius = 256.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 112.0
 
-[node name="BaseMob" index="0" instance=ExtResource( 1 )]
+[node name="BaseMob" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="AwareCircle" type="Area2D" parent="." index="4"]

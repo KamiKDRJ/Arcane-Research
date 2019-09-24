@@ -28,6 +28,8 @@ func random_direction() -> Vector2:
 
 	return directions[rnd]
 
-func random_direction_float() -> Vector2:
+func random_direction_8() -> Vector2:
 	randomize()
-	return Vector2(randf(), randf())
+	var new = Vector2(0, 0)
+	while new == Vector2(0, 0): new = Vector2(randi() % 3 - 1, randi() % 3 - 1)
+	return new

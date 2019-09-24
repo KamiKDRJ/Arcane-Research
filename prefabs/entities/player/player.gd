@@ -27,7 +27,7 @@ func _ready():
 func _physics_process(_d):
 	_world_interaction()
 	if Inputs.run[0]: running = true if !running else false 
-	CursorDirection.rotation = Cursor.position.angle_to_point(CursorDirection.position)
+	CursorDirection.rotation = Cursor.position.angle_to_point(CursorDirection.global_position)
 	
 
 ## Private Methods ##
