@@ -13,4 +13,3 @@
 [node name="Effects" type="YSort" parent="."]
 
 [node name="UI" type="Node2D" parent="."]
-

@@ -2,12 +2,11 @@ extends State
 
 
 func enter_state():
-    p.Sprite.play('use-item')
+	root.Sprite.play('use-item')
 
-func state_logic(_d):
-    p.movement_handler(Inputs.direction, 0)
+func logic(_d):
+	root.movement_handler(Inputs.direction, 0)
 
 func animation_end():
-	SM.switch(SM.state_prev)
-
-    
+	stateMachine.switch(stateMachine.state_prev)
+	# stateMachine.switch('Idle')

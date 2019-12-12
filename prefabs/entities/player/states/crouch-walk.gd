@@ -2,14 +2,14 @@ extends State
 
 
 func enter_state():
-    p.Sprite.play('crouch-walk')
+	root.Sprite.play('crouch-walk')
 
-func state_logic(_d):
-    p.movement_handler(Inputs.direction, p.crouch_speed)
-    p.sprite_flip(Inputs.direction.x)
+func logic(_d):
+	root.movement_handler(Inputs.direction, root.crouch_speed)
+	root.sprite_flip(Inputs.direction.x)
 
-    if Inputs.direction == Vector2.ZERO: SM.switch('crouch')
-    if Inputs.crouch[2]: SM.switch('walk')
+	if Inputs.direction == Vector2.ZERO: stateMachine.switch('Crouch')
+	if Inputs.crouch[2]: stateMachine.switch('Walk')
 
 func animation_end():
-    p.running = false
+	root.running = false

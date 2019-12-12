@@ -4,17 +4,17 @@ var default = { 'name': 'default', 'max_stack': 0, 'sprite': '', 'group': 'none'
 var data = [
 	{ 
 		'name': 'ring-blank',
-		'max_stack': 1,
+		'max_stack': 10,
 		'sprite': 'res://assets/items/Item__40.png',
 	},
 	{
 		'name': 'necklace-skull',
-		'max_stack': 1,
+		'max_stack': 10,
 		'sprite': 'res://assets/items/Item__35.png',
 	},
 	{
 		'name': 'parchment',
-		'max_stack': 1,
+		'max_stack': 10,
 		'sprite': 'res://assets/items/Item__38.png',
 	},
 ]

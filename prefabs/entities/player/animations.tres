@@ -74,7 +74,7 @@ animations = [ {
 "speed": 6.25
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 22 ) ],
-"loop": true,
+"loop": false,
 "name": "use-item",
 "speed": 7.0
 }, {
@@ -93,4 +93,3 @@ animations = [ {
 "name": "cast",
 "speed": 6.0
 } ]
-

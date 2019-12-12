@@ -1,6 +1,8 @@
 extends EntityBase
 class_name EntityMobBase
 
+
+## Properties ##
 onready var AwareCircle = $AwareCircle
 onready var ReactCircle = $ReactCircle
 
@@ -8,33 +10,40 @@ var aware_entered = false
 var react_entered = false
 var aware_body
 var react_body
+var react_to = ['Crouch-Walk', 'Crouch', 'Idle', 'Pickup']
 
+
+## Node Methods ##
 func _ready():
 	AwareCircle.connect('body_entered', self, '_on_aware_entered')
 	AwareCircle.connect('body_exited', self, '_on_aware_exited')
 	ReactCircle.connect('body_entered', self, '_on_react_entered')
 	ReactCircle.connect('body_exited', self, '_on_react_exited')
 
-#func _draw():
-#	draw_circle(Vector2.ZERO, AwareCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
-#	draw_circle(Vector2.ZERO, ReactCircle.get_node("CollisionShape2D").shape.radius, Color(1, 1, 1, .1))
+func _physics_process(delta):
+	react_check()
 
 
+## Private Methods ##
+func react_check():
+	if react_body:
+		if !react_to.has(react_body.StateMachine.state.name): react_entered = true
+		else: react_entered = false
 
-# Only reacts to player. May need to change that
+
+## Signal Methods ##
 func _on_aware_entered(body): 
-	if body.name == 'Player':
-		aware_entered = true
-		aware_body = body
+	aware_entered = true
+	aware_body = body
+
 func _on_aware_exited(body):
-	if body.name == 'Player':
-		aware_entered = false
-		aware_body = null
+	aware_entered = false
+	aware_body = null
+
 func _on_react_entered(body):
-	if body.name == 'Player':
-		react_entered = true
-		react_body = body
+	react_body = body
+	react_check()
+
 func _on_react_exited(body):
-	if body.name == 'Player':
-		react_entered = false
-		react_body = null
+	react_entered = false
+	react_body = null

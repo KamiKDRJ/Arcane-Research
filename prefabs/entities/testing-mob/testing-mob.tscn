@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://prefabs/entities/base-mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/entities/testing-mob/testing-mob.gd" type="Script" id=2]
@@ -12,6 +12,16 @@
 [ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-03.png" type="Texture" id=10]
 [ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-04.png" type="Texture" id=11]
 [ext_resource path="res://assets/player/crouch-walk/adventurer-crouch-walk-05.png" type="Texture" id=12]
+[ext_resource path="res://prefabs/entities/testing-mob/states/wander.gd" type="Script" id=13]
+[ext_resource path="res://scripts/state-machine/state-machine.gd" type="Script" id=14]
+[ext_resource path="res://prefabs/entities/testing-mob/states/idle.gd" type="Script" id=15]
+[ext_resource path="res://assets/player/run/adventurer-run-00.png" type="Texture" id=16]
+[ext_resource path="res://prefabs/entities/testing-mob/states/run.gd" type="Script" id=17]
+[ext_resource path="res://assets/player/run/adventurer-run-01.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/run/adventurer-run-02.png" type="Texture" id=19]
+[ext_resource path="res://assets/player/run/adventurer-run-03.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/run/adventurer-run-05.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/run/adventurer-run-04.png" type="Texture" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,26 +30,47 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "walk",
 "speed": 6.0
 } ]
 
-[node name="TestingMob" index="0" instance=ExtResource( 1 )]
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.09902
+
+[node name="TestingMob" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 modulate = Color( 0.282353, 1, 0.698039, 1 )
 position = Vector2( 0, -15 )
 frames = SubResource( 1 )
-animation = "walk"
-frame = 4
+animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -2 )
+shape = SubResource( 2 )
+
+[node name="StateMachine" type="Node" parent="." index="5"]
+script = ExtResource( 14 )
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 15 )
+
+[node name="Wander" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 13 )
+
+[node name="RunAway" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 17 )
+
+[node name="ReactCircle" parent="." index="6"]
 visible = false
-
-[node name="AwareCircle" parent="." index="4"]
-editor/display_folded = true
-

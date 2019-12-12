@@ -13,13 +13,13 @@ radius = 112.0
 script = ExtResource( 2 )
 
 [node name="AwareCircle" type="Area2D" parent="." index="4"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AwareCircle" index="0"]
 shape = SubResource( 1 )
 
 [node name="ReactCircle" type="Area2D" parent="." index="5"]
-editor/display_folded = true
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReactCircle" index="0"]
 shape = SubResource( 2 )
-
