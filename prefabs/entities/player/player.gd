@@ -5,7 +5,7 @@ extends EntityBase
 onready var Cursor = Globals.Cursor
 onready var CursorDirection = $CursorDirection
 onready var StateMachine = $StateMachine
-onready var Inv = Inventory.new(20)
+onready var Inv = $Inventory
 
 
 ## Properties ##
@@ -27,10 +27,16 @@ func _init():
 func _physics_process(_d):
 	_world_interaction()
 	if Inputs.run[0]: running = true if !running else false 
-	if Cursor: CursorDirection.rotation = Cursor.position.angle_to_point(CursorDirection.global_position)
-	else: CursorDirection.visible = false
+	_cursor_control()
+	# Debug
+	if Input.is_action_pressed("input_crouch"):
+		if Input.is_action_just_pressed("r"):
+			get_tree().change_scene("res://main.tscn")
 
 ## Private Methods ##
+func _cursor_control():
+	if Cursor: CursorDirection.rotation = get_global_mouse_position().angle_to_point(global_position)
+
 func _world_interaction():
 	var overlapping = $WorldInteraction.get_overlapping_areas()
 	if overlapping != []:
@@ -52,20 +58,19 @@ func _world_interaction():
 				entity = i
 		
 
-	if Inputs.use[0]:
-		if item_entered && item:
-			item.count = inventory.add(item.data.name, item.count)
-			if item.count == 0:
-				item.queue_free()
-				item_entered = false
-				item = null
-				StateMachine.switch('Pickup')
-				# NOTIFY: Inventory Full
-		if entity_entered && entity:
-			entity.queue_free()
-			entity_entered = false
-			entity = null
-			StateMachine.switch('Pickup')
+	if item_entered && item:
+		Inv.add_item(Item.new(item.data.name), item.count)
+		item.queue_free()
+		item_entered = false
+		item = null
+#		StateMachine.switch('Pickup')
+		# NOTIFY: Inventory Full
+#
+#		if entity_entered && entity:
+#			entity.queue_free()
+#			entity_entered = false
+#			entity = null
+#			StateMachine.switch('Pickup')
 			
 		
 

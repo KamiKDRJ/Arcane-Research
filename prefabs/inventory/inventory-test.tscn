@@ -1,0 +1,535 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefabs/inventory/inventory-test.gd" type="Script" id=1]
+[ext_resource path="res://prefabs/inventory/inventory.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/inventory/slot.tscn" type="PackedScene" id=3]
+
+[node name="InventoryTest" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -78.0
+margin_right = 124.0
+margin_bottom = -42.0
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+margin_right = 752.0
+margin_bottom = 24.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+
+[node name="Slot2" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_right = 52.0
+
+[node name="Slot3" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_right = 80.0
+
+[node name="Slot4" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_right = 108.0
+
+[node name="Slot5" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_right = 136.0
+
+[node name="Slot6" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 164.0
+
+[node name="Slot7" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_right = 192.0
+
+[node name="Slot8" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_right = 220.0
+
+[node name="Slot9" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_right = 248.0
+
+[node name="Slot18" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_right = 276.0
+
+[node name="Slot17" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 280.0
+margin_right = 304.0
+
+[node name="Slot16" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 308.0
+margin_right = 332.0
+
+[node name="Slot15" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_right = 360.0
+
+[node name="Slot14" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 364.0
+margin_right = 388.0
+
+[node name="Slot13" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 392.0
+margin_right = 416.0
+
+[node name="Slot12" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_right = 444.0
+
+[node name="Slot11" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 448.0
+margin_right = 472.0
+
+[node name="Slot10" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 476.0
+margin_right = 500.0
+
+[node name="Slot27" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_right = 528.0
+
+[node name="Slot26" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_right = 556.0
+
+[node name="Slot25" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 560.0
+margin_right = 584.0
+
+[node name="Slot24" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_right = 612.0
+
+[node name="Slot23" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 616.0
+margin_right = 640.0
+
+[node name="Slot22" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 644.0
+margin_right = 668.0
+
+[node name="Slot21" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 672.0
+margin_right = 696.0
+
+[node name="Slot20" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 700.0
+margin_right = 724.0
+
+[node name="Slot19" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 728.0
+margin_right = 752.0
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -16.0
+margin_right = 128.0
+margin_bottom = 64.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer2"]
+margin_right = 248.0
+margin_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 9
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+
+[node name="Slot2" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_right = 52.0
+
+[node name="Slot3" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_right = 80.0
+
+[node name="Slot4" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_right = 108.0
+
+[node name="Slot5" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_right = 136.0
+
+[node name="Slot6" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 164.0
+
+[node name="Slot7" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_right = 192.0
+
+[node name="Slot8" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_right = 220.0
+
+[node name="Slot9" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_right = 248.0
+
+[node name="Slot18" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_top = 28.0
+margin_bottom = 52.0
+
+[node name="Slot17" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 52.0
+margin_bottom = 52.0
+
+[node name="Slot16" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 28.0
+margin_right = 80.0
+margin_bottom = 52.0
+
+[node name="Slot15" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 28.0
+margin_right = 108.0
+margin_bottom = 52.0
+
+[node name="Slot14" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 28.0
+margin_right = 136.0
+margin_bottom = 52.0
+
+[node name="Slot13" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 28.0
+margin_right = 164.0
+margin_bottom = 52.0
+
+[node name="Slot12" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 28.0
+margin_right = 192.0
+margin_bottom = 52.0
+
+[node name="Slot11" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_top = 28.0
+margin_right = 220.0
+margin_bottom = 52.0
+
+[node name="Slot10" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_top = 28.0
+margin_right = 248.0
+margin_bottom = 52.0
+
+[node name="Slot27" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_top = 56.0
+margin_bottom = 80.0
+
+[node name="Slot26" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 52.0
+margin_bottom = 80.0
+
+[node name="Slot25" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 56.0
+margin_right = 80.0
+margin_bottom = 80.0
+
+[node name="Slot24" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 56.0
+margin_right = 108.0
+margin_bottom = 80.0
+
+[node name="Slot23" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 56.0
+margin_right = 136.0
+margin_bottom = 80.0
+
+[node name="Slot22" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 56.0
+margin_right = 164.0
+margin_bottom = 80.0
+
+[node name="Slot21" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 56.0
+margin_right = 192.0
+margin_bottom = 80.0
+
+[node name="Slot20" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_top = 56.0
+margin_right = 220.0
+margin_bottom = 80.0
+
+[node name="Slot19" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_top = 56.0
+margin_right = 248.0
+margin_bottom = 80.0
+
+[node name="Slot54" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_top = 84.0
+margin_bottom = 108.0
+
+[node name="Slot53" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 84.0
+margin_right = 52.0
+margin_bottom = 108.0
+
+[node name="Slot52" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 84.0
+margin_right = 80.0
+margin_bottom = 108.0
+
+[node name="Slot51" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 84.0
+margin_right = 108.0
+margin_bottom = 108.0
+
+[node name="Slot50" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 84.0
+margin_right = 136.0
+margin_bottom = 108.0
+
+[node name="Slot49" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 84.0
+margin_right = 164.0
+margin_bottom = 108.0
+
+[node name="Slot48" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 84.0
+margin_right = 192.0
+margin_bottom = 108.0
+
+[node name="Slot47" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_top = 84.0
+margin_right = 220.0
+margin_bottom = 108.0
+
+[node name="Slot46" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_top = 84.0
+margin_right = 248.0
+margin_bottom = 108.0
+
+[node name="Slot45" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_top = 112.0
+margin_bottom = 136.0
+
+[node name="Slot44" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 112.0
+margin_right = 52.0
+margin_bottom = 136.0
+
+[node name="Slot43" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 112.0
+margin_right = 80.0
+margin_bottom = 136.0
+
+[node name="Slot42" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 112.0
+margin_right = 108.0
+margin_bottom = 136.0
+
+[node name="Slot41" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 136.0
+margin_bottom = 136.0
+
+[node name="Slot40" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 112.0
+margin_right = 164.0
+margin_bottom = 136.0
+
+[node name="Slot39" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 112.0
+margin_right = 192.0
+margin_bottom = 136.0
+
+[node name="Slot38" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_top = 112.0
+margin_right = 220.0
+margin_bottom = 136.0
+
+[node name="Slot37" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_top = 112.0
+margin_right = 248.0
+margin_bottom = 136.0
+
+[node name="Slot36" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_top = 140.0
+margin_bottom = 164.0
+
+[node name="Slot35" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 140.0
+margin_right = 52.0
+margin_bottom = 164.0
+
+[node name="Slot34" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 140.0
+margin_right = 80.0
+margin_bottom = 164.0
+
+[node name="Slot33" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 140.0
+margin_right = 108.0
+margin_bottom = 164.0
+
+[node name="Slot32" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 140.0
+margin_right = 136.0
+margin_bottom = 164.0
+
+[node name="Slot31" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 140.0
+margin_right = 164.0
+margin_bottom = 164.0
+
+[node name="Slot30" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 140.0
+margin_right = 192.0
+margin_bottom = 164.0
+
+[node name="Slot29" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_top = 140.0
+margin_right = 220.0
+margin_bottom = 164.0
+
+[node name="Slot28" parent="ScrollContainer2/GridContainer" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_top = 140.0
+margin_right = 248.0
+margin_bottom = 164.0
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+margin_left = 447.0
+margin_top = -85.0
+margin_right = 695.0
+margin_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 9
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot" parent="GridContainer2" instance=ExtResource( 3 )]
+
+[node name="Slot2" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_right = 52.0
+
+[node name="Slot3" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_right = 80.0
+
+[node name="Slot4" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_right = 108.0
+
+[node name="Slot5" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_right = 136.0
+
+[node name="Slot6" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 164.0
+
+[node name="Slot7" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_right = 192.0
+
+[node name="Slot8" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 196.0
+margin_right = 220.0
+
+[node name="Slot9" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 224.0
+margin_right = 248.0
+
+[node name="Slot18" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_top = 28.0
+margin_bottom = 52.0
+
+[node name="Slot17" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 52.0
+margin_bottom = 52.0
+
+[node name="Slot16" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 56.0
+margin_top = 28.0
+margin_right = 80.0
+margin_bottom = 52.0
+
+[node name="Slot15" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 28.0
+margin_right = 108.0
+margin_bottom = 52.0
+
+[node name="Slot14" parent="GridContainer2" instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 28.0
+margin_right = 136.0
+margin_bottom = 52.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://prefabs/entities/base-entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/entities/player/player.gd" type="Script" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://prefabs/entities/player/states/run.gd" type="Script" id=9]
 [ext_resource path="res://prefabs/entities/player/states/crouch-walk.gd" type="Script" id=10]
 [ext_resource path="res://prefabs/entities/player/states/crouch.gd" type="Script" id=11]
+[ext_resource path="res://prefabs/inventory/slot.tscn" type="PackedScene" id=12]
+[ext_resource path="res://prefabs/inventory/inventory.gd" type="Script" id=13]
+[ext_resource path="res://assets/player/shadow.png" type="Texture" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -18,26 +21,37 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 14 )
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 collision_mask = 0
 script = ExtResource( 2 )
 
-[node name="CursorDirection" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( 0, -3 )
+texture = ExtResource( 14 )
+
+[node name="CursorDirection" type="Sprite" parent="." index="1"]
 position = Vector2( 0, 2.5 )
 texture = ExtResource( 3 )
 
-[node name="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" parent="." index="2"]
 position = Vector2( 0, -14.5 )
 frames = ExtResource( 4 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
 position = Vector2( 0, -3 )
 shape = SubResource( 1 )
 
-[node name="WorldInteraction" type="Area2D" parent="." index="5"]
+[node name="HealthContoller" parent="." index="5"]
+value = 3
+max_value = 3
+invincible = false
+
+[node name="WorldInteraction" type="Area2D" parent="." index="6"]
+visible = false
 position = Vector2( 0, -15 )
 collision_mask = 2
 
@@ -45,12 +59,13 @@ collision_mask = 2
 position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="6"]
+[node name="Camera2D" type="Camera2D" parent="." index="7"]
 position = Vector2( 0, -14.5 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
 
-[node name="StateMachine" type="Node" parent="." index="7"]
+[node name="StateMachine" type="Node" parent="." index="8"]
 script = ExtResource( 5 )
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
@@ -70,3 +85,60 @@ script = ExtResource( 10 )
 
 [node name="Pickup" type="Node" parent="StateMachine" index="5"]
 script = ExtResource( 7 )
+
+[node name="Inventory" type="GridContainer" parent="." index="9"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -136.828
+margin_right = 40.0
+margin_bottom = -56.8279
+columns = 3
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot" parent="Inventory" index="0" instance=ExtResource( 12 )]
+
+[node name="Slot2" parent="Inventory" index="1" instance=ExtResource( 12 )]
+margin_left = 28.0
+margin_right = 52.0
+
+[node name="Slot3" parent="Inventory" index="2" instance=ExtResource( 12 )]
+margin_left = 56.0
+margin_right = 80.0
+
+[node name="Slot4" parent="Inventory" index="3" instance=ExtResource( 12 )]
+margin_top = 28.0
+margin_bottom = 52.0
+
+[node name="Slot5" parent="Inventory" index="4" instance=ExtResource( 12 )]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 52.0
+margin_bottom = 52.0
+
+[node name="Slot6" parent="Inventory" index="5" instance=ExtResource( 12 )]
+margin_left = 56.0
+margin_top = 28.0
+margin_right = 80.0
+margin_bottom = 52.0
+
+[node name="Slot7" parent="Inventory" index="6" instance=ExtResource( 12 )]
+margin_top = 56.0
+margin_bottom = 80.0
+
+[node name="Slot8" parent="Inventory" index="7" instance=ExtResource( 12 )]
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 52.0
+margin_bottom = 80.0
+
+[node name="Slot9" parent="Inventory" index="8" instance=ExtResource( 12 )]
+margin_left = 56.0
+margin_top = 56.0
+margin_right = 80.0
+margin_bottom = 80.0

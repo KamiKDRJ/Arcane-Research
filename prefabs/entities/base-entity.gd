@@ -5,8 +5,8 @@ class_name EntityBase
 ## Nodes ##
 onready var Sprite = $AnimatedSprite
 onready var Health = $HealthContoller
-onready var drops = Inventory.new(10)
-onready var inventory = Inventory.new(10)
+#onready var drops = Inventory.new(10)
+#onready var inventory = Inventory.new(10)
 
 
 ## Properties ##

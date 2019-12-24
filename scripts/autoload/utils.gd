@@ -33,3 +33,13 @@ func random_direction_8() -> Vector2:
 	var new = Vector2(0, 0)
 	while new == Vector2(0, 0): new = Vector2(randi() % 3 - 1, randi() % 3 - 1)
 	return new
+
+func create_2d_array(w, h):
+	var map = []
+
+	for x in range(w):
+		var col = []
+		col.resize(h)
+		map.append(col)
+
+	return map

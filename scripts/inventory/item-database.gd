@@ -6,6 +6,7 @@ var data = [
 		'name': 'ring-blank',
 		'max_stack': 10,
 		'sprite': 'res://assets/items/Item__40.png',
+		'amount': 1
 	},
 	{
 		'name': 'necklace-skull',
@@ -21,7 +22,7 @@ var data = [
 
 func find_item(item_name: String) -> Dictionary:
 	var item
-	for i in data: if item_name == i.name: item = i
+	for i in data: if item_name == i.name: item = i.duplicate()
 	
 	if item: return _populate(item)
 	else: return _populate(get_random_item())

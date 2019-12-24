@@ -1,0 +1,104 @@
+extends Control
+
+onready var Inv = Inventory.new(10)
+onready var Grid = $GridContainer
+var Slot = preload('res://prefabs/TESTS/inventory-gui/slot.tscn')
+
+var held_item = null
+var t = true
+var arr = []
+
+func _ready():
+	for i in range(4):
+		var s = Slot.instance()
+		s.type = ItemSlot.INVENTORY
+		Grid.add_child(s)
+
+		Grid.get_children()[0].r = 50
+		print(Grid.get_children()[0].type)
+		
+	
+#	for i in range(5):
+#		var f = ItemSlot.new(i, ItemSlot.SHOP)
+#		Grid.add_child(f)
+#
+#	for i in range(5):
+#		var f = ItemSlot.new(i, ItemSlot.INVENTORY)
+#		Grid.add_child(f)
+#
+#	for i in range(5):
+#		var slot = $Slot.duplicate()
+#		# slot.set_script(load('res://scripts/inventory/slot.gd'))
+#		arr.append(slot)
+#		Grid.add_child(slot)
+#
+#
+#
+##	var t = Item.new('test', 'res://assets/items/Item__00.png', {'type': Item.NONE})
+###	Inv.add(t)
+##	Grid.get_children()[0]._set_item(t)
+#
+#	Inv.add('ring-blank', 10)
+#	Inv.add('necklace-skull', 25)
+#	Inv.add('parchment', 5)
+#
+#	for i in range(Inv.data.size()):
+#		var it = Inv.data[i]
+#		if it.name:
+#			var new = Item.new(it.name, it.sprite, {'amount': it.count})
+#			Grid.get_children()[i]._set_item(new)
+
+func _physics_process(_d):
+#	if t:
+#		for i in arr:
+#			i.set_script(load('res://scripts/inventory/slot.gd'))
+#		t = false
+	# for i in Grid.get_children():
+	# 	var m = Grid.get_local_mouse_position()
+	# 	if m.x > i.rect_position.x && m.x < i.rect_position.x + i.rect_size.x:
+	# 		if m.y > i.rect_position.y && m.y < i.rect_position.y + i.rect_size.y:
+	# 			print(i)
+
+	for i in range(Grid.get_children().size()):
+		var slot = Grid.get_children()[i]
+		var mpos = Grid.get_local_mouse_position()
+		
+		var slot_pos = slot.rect_position
+		var slot_size = slot.rect_size
+
+		var inside_x = mpos.x > slot_pos.x && mpos.x < slot_pos.x + slot_size.x
+		var inside_y = mpos.y > slot_pos.y && mpos.y < slot_pos.y + slot_size.y
+
+		if inside_x && inside_y:
+			if Input.is_action_just_pressed("mouse_left"):
+				match slot.type:
+					ItemSlot.INVENTORY:
+						if !held_item:
+							held_item = slot.item
+							slot._pick_item()
+							break
+						if !slot.item:
+							slot._store_item(held_item)
+							held_item = null
+							break
+						if slot.item && slot.item.data.id == held_item.data.id:
+							slot.item.data.attributes.amount += held_item.data.attributes.amount
+							slot._update_amount()
+							held_item.queue_free()
+							held_item = null
+					ItemSlot.SHOP:
+						if !held_item && slot.item:
+							# id: String, icon: String, attributes: Dictionary = {}
+							held_item = null
+							held_item = Item.new(slot.item.data.id, slot.item.data.icon, slot.item.data.attributes)
+							Utils.get_scene_root().add_child(held_item)
+							break
+						
+						if held_item && slot.item:
+							if held_item.data.id == slot.item.data.id:
+								held_item.data.attributes.amount += slot.item.data.attributes.amount
+								print(held_item.data)
+	if held_item:
+		held_item.rect_position = get_global_mouse_position()
+
+

@@ -8,5 +8,5 @@ func logic(_d):
 	root.movement_handler(Inputs.direction, 0)
 
 func animation_end():
-	stateMachine.switch(stateMachine.state_prev)
+	stateMachine.switch(stateMachine.state_prev.name)
 	# stateMachine.switch('Idle')

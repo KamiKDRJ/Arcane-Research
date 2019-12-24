@@ -24,10 +24,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/health/health.gd"
 }, {
-"base": "Node",
-"class": "Inventory",
+"base": "TextureRect",
+"class": "Item",
 "language": "GDScript",
-"path": "res://scripts/inventory/inventory.gd"
+"path": "res://scripts/inventory/item.gd"
+}, {
+"base": "TextureRect",
+"class": "ItemSlot",
+"language": "GDScript",
+"path": "res://prefabs/inventory/slot.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -43,7 +48,8 @@ _global_script_class_icons={
 "EntityBase": "",
 "EntityMobBase": "",
 "HealthController": "",
-"Inventory": "",
+"Item": "",
+"ItemSlot": "",
 "State": "",
 "StateMachine": ""
 }
@@ -51,6 +57,7 @@ _global_script_class_icons={
 [application]
 
 run/main_scene="res://main.tscn"
+config/icon="res://assets/items/Item__20.png"
 
 [autoload]
 
@@ -58,17 +65,18 @@ Inputs="*res://scripts/autoload/inputs.gd"
 ItemDatabase="*res://scripts/inventory/item-database.gd"
 Globals="*res://scripts/autoload/globals.gd"
 Utils="*res://scripts/autoload/utils.gd"
+InvController="*res://scripts/autoload/inventory-controller.gd"
+IconLoader="*res://addons/file-editor/scripts/IconLoader.gd"
+LastOpenedFiles="*res://addons/file-editor/scripts/LastOpenedFiles.gd"
 
 [display]
 
-window/size/width=896
-window/size/height=504
+window/size/width=960
+window/size/height=540
+window/size/test_width=640
+window/size/test_height=360
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-
-[editor_plugins]
-
-enabled=PoolStringArray(  )
 
 [input]
 
@@ -130,6 +138,11 @@ mouse_scroll_up={
 mouse_scroll_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+r={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 

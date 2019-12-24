@@ -5,11 +5,12 @@ extends Node2D
 signal left_press
 signal right_press
 onready var fadeTimer = $Timer
+onready var default_alpha = modulate.a
 
 
 # Properties #
 var fade = false
-
+var target_alpha = .25
 
 # Node Methods #
 func _init():
@@ -23,7 +24,7 @@ func _physics_process(_d):
 	_inputs()
 	_move_fade_logic()
 	_fade_control()
-
+	
 
 # Private Methods #
 func _move_fade_logic():
@@ -39,7 +40,7 @@ func _move_fade_logic():
 			fade = false
 
 func _fade_control():
-	var target = .25 if fade else 1
+	var target = target_alpha if fade else default_alpha
 	if modulate.a != target:
 		modulate = lerp(modulate, Color(1, 1, 1, target), .05)
 
