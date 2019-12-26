@@ -14,7 +14,7 @@ func _ready():
 	add_to_group('item')
 
 func _process(delta):
-	var Player = Globals.Player
+	var Player = Global.Player
 	if Player:
 		if global_position.distance_to(Player.global_position) < 100:
 			global_position += global_position.direction_to(Player.global_position) * 2

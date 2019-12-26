@@ -2,7 +2,6 @@ extends EntityBase
 
 
 ## Nodes ## 
-onready var Cursor = Globals.Cursor
 onready var CursorDirection = $CursorDirection
 onready var StateMachine = $StateMachine
 onready var Inv = $Inventory
@@ -22,7 +21,7 @@ var entity = null
 
 ## Node Methods ##
 func _init():
-	Globals.Player = self
+	Global.Player = self
 
 func _physics_process(_d):
 	_world_interaction()
@@ -32,10 +31,15 @@ func _physics_process(_d):
 	if Input.is_action_pressed("input_crouch"):
 		if Input.is_action_just_pressed("r"):
 			get_tree().change_scene("res://main.tscn")
+	
+	if Input.is_action_just_pressed("input_inventory"):
+		$Inventory.visible = true if !$Inventory.visible else false
+
 
 ## Private Methods ##
 func _cursor_control():
-	if Cursor: CursorDirection.rotation = get_global_mouse_position().angle_to_point(global_position)
+	CursorDirection.visible = true if Global.Cursor else false
+	CursorDirection.rotation = get_global_mouse_position().angle_to_point(CursorDirection.global_position)
 
 func _world_interaction():
 	var overlapping = $WorldInteraction.get_overlapping_areas()

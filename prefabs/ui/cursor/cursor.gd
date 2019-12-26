@@ -14,7 +14,7 @@ var target_alpha = .25
 
 # Node Methods #
 func _init():
-	Globals.Cursor = self
+	Global.Cursor = self
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

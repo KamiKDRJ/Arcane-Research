@@ -5,5 +5,4 @@ antialiased = false
 font_path = "res://assets/fonts/monogram.ttf"
 
 [resource]
-use_mipmaps = true
 font_data = SubResource( 1 )

@@ -1,6 +1,0 @@
-extends TextureRect
-
-var r = rand_range(10, 100)
-var type = 0
-func _ready():
-	print(r)
